@@ -7,10 +7,6 @@
  
 - регистрация события.  
  
-- изменение статуса пользователя (авторизован или нет).
- 
-- просмотр и изменение данных..
- 
 - фильтрация (по дате и названию события)
 
 - получение агрегированной информации в формате JSON:
@@ -24,19 +20,23 @@
 <h2>API:</h2>
 <ul>
 
-- POST/api/events - регистрация события
+- POST /api/events - регистрация события
 
-- GET/api/event-counters - получить данные о событии
+- GET /api/event-counters - получить данные о событии
+   поддерживает след параметры в строке запроса:
+   counter - тип агрегации (по наименованию, айпи или статусу пользователя) (обяз)
+   date - фильтрацию по дате (не обяз)
+   name - фильтрацию по наименованию (не обяз)
 
-- GET/api/event-counters?counter=name - фильтрация данных по названию события 
+- GET /api/event-counters?counter=name - фильтрация данных по названию события 
  
-- GET/api/event-counters?counter=ip_address&date=2023-05-10 - фильтрация данных по названию дате
+- GET /api/event-counters?counter=ip_address&date=2023-05-10 - фильтрация данных по дате
     
-- Get/api/event-counters?counter=ip_address - счетчики событий по пользователю (по IP-адресу)
+- Get /api/event-counters?counter=ip_address - счетчики событий по пользователю (по IP-адресу)
     
-- Get/api/event-counters?counter=authorize - счетчики событий по статусу пользователя
+- Get /api/event-counters?counter=authorize - счетчики событий по статусу пользователя
     
-- Get/api/event-counters?counter=ip_address&name=aldar&date=2023-05-10                   - счетчики конкретных событий 
+- Get /api/event-counters?counter=ip_address&name=Ivan&date=2023-05-10 - счетчики конкретных событий 
    
 </ul>
 
